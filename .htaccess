@@ -1,0 +1,8 @@
+AddDefaultCharset utf-8
+
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^(template|js)/ - [L]
+RewriteRule form_ajax.php - [L]
+RewriteRule ^(.*)$ index.php
