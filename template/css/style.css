@@ -1167,7 +1167,7 @@ legend {
 }
 .footer .inner {
 	background: #000;
-	background: rgba(0,0,0,.9);
+	background: rgba(0,0,0,.1);
 }
 .footer .top {
 	padding-top: 60px;
@@ -1321,7 +1321,7 @@ legend {
 	color: #fff;
 }
 .section.blue.transparent>.inner {
-	background: rgba(104, 70, 28, 0.9);
+	background: rgba(104, 70, 28, 0.1);
 }
 .section.no-padding-bottom>.inner {
 	padding-bottom: 0;
@@ -3367,7 +3367,6 @@ text-transform: capitalize;
 	letter-spacing: .52px;
 	color: #fff;
 	line-height: 58px;
-	background: rgba(0,0,0,.6);
 	text-align: center;
 	padding-bottom: 20px;
 	float: left;
