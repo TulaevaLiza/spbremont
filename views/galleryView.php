@@ -20,11 +20,11 @@
                                                 <?php foreach($rw['photos'] as  $url):?>
 						<div class="item">
 							<div class="image">
-                                                            <img src="<?php echo $url; ?>" alt="<?php $rw['title']; ?>" class="img-responsive">
+                                                            <img src="<?php echo $url['small']; ?>" alt="<?php $rw['title']; ?>" class="img-responsive">
 								<div class="overlay">
 									<div class="inner">
-										<a href="" class="link"><i class="fa fa-link"></i></a>
-										<a href="<?php echo $url; ?>" class="zoom popupzoom"><i class="fa fa-search"></i></a>
+									<!--	<a href="" class="link"><i class="fa fa-link"></i></a> -->
+										<a href="<?php echo $url['orig']; ?>" class="zoom popupzoom"><i class="fa fa-search"></i></a>
 									</div> <!-- end .inner -->
 								</div> <!-- end .overlay -->
 							</div> <!-- end .image -->
@@ -35,7 +35,7 @@
 						</div> <!-- end .item -->
                                                 <?php endforeach;?>
 					</div> <!-- end .portfolio-details -->
-					<div class="portfolio-load-more"><a href="/фото_ремонта/<?php echo $rw['id']; ?>" class="button">Смотреть больше</a></div>
+					<div class="portfolio-load-more"><a href="<?php echo $rw['link']; ?>" class="button">Смотреть больше</a></div>
 				</div> <!-- end .container -->
                                 <?php endforeach;?>
 			</div> <!-- end .inner -->

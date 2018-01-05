@@ -14,9 +14,27 @@
 class Gallery {
     const WITH_PHOTO=true;
     private static function getPhotos($id,$lim=6) {
+        $path=ROOT.'/template/images/gallery/'.$id.'/small';
+        $link='/template/images/gallery/'.$id.'/small/';
+        $link_orig='/template/images/gallery/'.$id.'/';
         $photos=array();
-        for($i=0;$i<$lim;$i++)
-            $photos[]="/template/images/portfolio12.png";
+        if(is_dir($path)) {
+            $f = array_diff(scandir($path), array('..', '.'));
+            if(count($f)>0) {
+                $count=count($f);
+                for($i=0;$i<($lim>$count?$count:$lim);$i++) {
+                    $fname=array_shift($f);
+                    $photos[$i]['small']=$link.$fname;    
+                    $photos[$i]['orig']=$link_orig.$fname;    
+                }
+            }
+        }
+        if(!count($photos)) {
+            for($i=0;$i<$lim;$i++) {
+                $photos[$i]['small']="/template/images/portfolio12.png";
+                $photos[$i]['orig']="/template/images/portfolio12.png";
+            }
+        }
         return $photos;
     }
             

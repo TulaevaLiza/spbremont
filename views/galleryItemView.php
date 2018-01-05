@@ -17,11 +17,11 @@
                                                 <?php foreach($data['photos'] as  $url):?>
 						<div class="item">
 							<div class="image">
-                                                            <img src="<?php echo $url; ?>" alt="<?php $data['title']; ?>" class="img-responsive">
+                                                            <img src="<?php echo $url['small']; ?>" alt="<?php $data['title']; ?>" class="img-responsive">
 								<div class="overlay">
 									<div class="inner">
-										<a href="<?php echo $url; ?>" class="link"><i class="fa fa-link"></i></a>
-										<a href="<?php echo $url; ?>" class="zoom popupzoom"><i class="fa fa-search"></i></a>
+										<a href="<?php echo $url['orig']; ?>" class="link"><i class="fa fa-link"></i></a>
+										<a href="<?php echo $url['orig']; ?>" class="zoom popupzoom"><i class="fa fa-search"></i></a>
 									</div> <!-- end .inner -->
 								</div> <!-- end .overlay -->
 							</div> <!-- end .image -->
