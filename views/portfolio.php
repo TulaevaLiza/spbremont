@@ -18,10 +18,14 @@
 								<div class="portfolio-sizer"></div>
 
                                                                 <?php foreach($data['gallery']['alboms'] as $rw):?>
-								<div class="item class<?php echo $rw['section'];?> cmo-portfolio-featured-image-bg" style="background-image: url('/template/images/portfolio01.png');">
+                                                                <?php $path='/template/images/gallery/portfolio/'.$rw['id'].'.jpg';
+                                                                if(!file_exists(ROOT.$path))
+                                                                        $path='/template/images/portfolio01.png';
+                                                                ?>
+								<div class="item class<?php echo $rw['section'];?> cmo-portfolio-featured-image-bg" style="background-image: url('<?php echo $path; ?>');">
 									<div class="cmo-pfi-hover">
 										<div class="cmo-pfi-hover-inner">
-                                                                                    <a href="/template/images/portfolio01.png" title="<?php echo $rw['title']; ?>" class="cmo-pfi-external-link zoom popupzoom">
+                                                                                    <a href="<?php echo $path; ?>" title="<?php echo $rw['title']; ?>" class="cmo-pfi-external-link zoom popupzoom">
 											<i class="fa fa-search-plus"></i>
 											</a>
 											<h3><a href="<?php echo $rw['link']; ?>"><?php echo $rw['title']; ?></a></h3>
