@@ -28,7 +28,7 @@
 									<a href="<?php echo $rw['link'];?>" class="button">Подробнее</a>
 								</div> <!-- end .col-sm-6 -->
 								<div class="col-sm-6 clearfix">
-									<img src="/template/images/image.png" alt="<?php echo $rw['title'];?>" class="img-responsive pull-right">
+									<img src="<?php echo (file_exists(ROOT.'/template/images/items/475x477/'.$rw['id'].'.jpg')?'/template/images/items/475x477/'.$rw['id'].'.jpg':'/template/images/image.png'); ?>" alt="<?php echo $rw['title'];?>" class="img-responsive pull-right">
 								</div> <!-- end .col-sm-6 -->
 							</div> <!-- end .row -->
 						</div> <!-- end .tab-pane -->
@@ -44,7 +44,7 @@
 				<div class="service-boxes">
                                         <?php foreach ($data['items'] as $i=>$rw):?>
                                         <?php if(!$rw['is_main']):?>                                    
-					<div class="service-box" style="background-image: url('/template/images/service1.png');">
+					<div class="service-box" style="background-image: url('<?php echo (file_exists(ROOT.'/template/images/items/482x350/'.$rw['id'].'.jpg')?'/template/images/items/482x350/'.$rw['id'].'.jpg':'/template/images/service1.png'); ?>');">
 						<div class="overlay">
 							<div class="inner">
                                                             <a href="<?php echo $rw['link'];?>" class="button"><?php echo $rw['title'];?></a>
