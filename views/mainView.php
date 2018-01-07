@@ -75,7 +75,7 @@
                                     <?php if($rw['is_main']):?>
 		            <div class="col-sm-3">
                                 <div class="wpb_single_image vc_align_left"><a href="<?php echo $rw['link']; ?>">
-                                        <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="640" height="400" src="/template/images/img03.jpg" class="vc_single_image-img attachment-large" alt="<?php echo $rw['title']; ?>"></div>
+                                        <div class="vc_single_image-wrapper   vc_box_border_grey"><img src="<?php echo (file_exists(ROOT.'/template/images/items/512x320/'.$rw['id'].'.jpg')?'/template/images/items/512x320/'.$rw['id'].'.jpg':'/template/images/img03.jpg'); ?>" class="vc_single_image-img attachment-large" alt="<?php echo $rw['title']; ?>"></div>
 	                    </a></div>
 	                    <div class="serv-item">
 	                        <a href="<?php echo $rw['link']; ?>"><h2><?php echo $rw['title']; ?></h2></a>
@@ -123,7 +123,7 @@
                                             <?php foreach($data['blogs'] as $rw): ?>
 						<div class="col-sm-4">
 							<div class="blog-post">
-                                                            <a href="<?php echo $rw['link']; ?>"><img src="/template/images/blog-post01.png" alt="alt text" class="img-responsive center-block"></a>
+                                                            <a href="<?php echo $rw['link']; ?>"><img src="<?php echo (file_exists(ROOT.'/template/images/blogs/370x276/'.$rw['id'].'.jpg')?'/template/images/blogs/370x276/'.$rw['id'].'.jpg':'/template/images/blog-post01.png'); ?>" alt="alt text" class="img-responsive center-block"></a>
 								<div class="content">
 									<div class="blog-icon"><i class="icon-picture"></i></div>
 									<div class="blog-post-header">

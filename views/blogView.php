@@ -14,7 +14,7 @@
                                             <?php foreach($data['blogsList'] as $rw):?>
 						<div class="col-sm-4">
 							<div class="blog-post">
-                                                            <a href=""><img src="/template/images/blog-post01.png" alt="<?php echo $rw['title']; ?>" class="img-responsive center-block"></a>
+                                                            <a href=""><img src="<?php echo (file_exists(ROOT.'/template/images/blogs/370x276/'.$rw['id'].'.jpg')?'/template/images/blogs/370x276/'.$rw['id'].'.jpg':'/template/images/blog-post01.png'); ?>" alt="<?php echo $rw['title']; ?>" class="img-responsive center-block"></a>
 								<div class="content">
 									<div class="blog-icon"><i class="icon-picture"></i></div>
 									<div class="blog-post-header">

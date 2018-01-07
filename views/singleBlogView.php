@@ -13,7 +13,7 @@
 					<div class="row">
 						<div class="col-sm-8">
 							<div class="blog-post">
-								<img src="/template/images/blog-post10.png" alt="alt text" class="img-responsive center-block">
+								<img src="<?php echo (file_exists(ROOT.'/template/images/blogs/830x416/'.$data['id'].'.jpg')?'/template/images/blogs/830x416/'.$data['id'].'.jpg':'/template/images/blog-post10.png'); ?>" alt="alt text" class="img-responsive center-block">
 								<div class="content"  itemscope itemtype="http://schema.org/BlogPosting">
 									<div class="blog-icon"><i class="icon-picture"></i></div>
 									<div class="blog-post-header">
@@ -32,7 +32,7 @@
 								<h4>Новые записи в блоге</h4>
                                                                 <?php foreach($data['otherPosts'] as $rw):?>
 								<div class="recent-post clearfix">
-									<a href=""><img src="/template/images/recent-post1.png" alt="alt"></a>
+									<a href=""><img src="<?php echo (file_exists(ROOT.'/template/images/blogs/59x59/'.$rw['id'].'.jpg')?'/template/images/blogs/59x59/'.$rw['id'].'.jpg':'/template/images/blog-post1.png'); ?>" alt="alt"></a>
 									<div class="content">
                                                                             <h6><a href="<?php echo $rw['link'];?>"><?php echo $rw['title']?></a></h6>
 										<span class="date"><?php echo $rw['date_format'];?></span>
