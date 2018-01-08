@@ -44,6 +44,11 @@ class Item {
             return self::$itemsById[$id]['title'];          
         return '';
     }    
+    public static function getAllItems() {
+        self::getItems();
+        return self::$itemsById;                  
+    }
+
     public static function getItemsByParent($parent) 
     {
         self::getItems();

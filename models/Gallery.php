@@ -70,8 +70,10 @@ class Gallery {
         return $data;
     }
     public static function getAlboms($limit=0,$withPhoto=false,$limPhotos=6) {
-        
+    
         self::getGallery();
+        $ids=array();
+        $data['alboms']=array();
         $itr=0;
         foreach(self::$galleryById as $id=>$row) {
             $ids[]=$row['section'];            
