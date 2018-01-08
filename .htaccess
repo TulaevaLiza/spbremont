@@ -5,4 +5,5 @@ RewriteBase /
 
 RewriteRule ^(template|js)/ - [L]
 RewriteRule Sitemap.php - [L]
+RewriteRule sitemap.xml - [L]
 RewriteRule ^(.*)$ index.php

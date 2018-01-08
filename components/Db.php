@@ -19,6 +19,9 @@ class Db {
         if(self::$db==NULL) {
             include_once ROOT.'/config/db.php';
             self::$db=new PDO("mysql:host=$host;dbname=$db_name",$user,$pwd);
+		self::$db->query("set character_set_client='utf8'");
+		self::$db->query("set character_set_results='utf8'");
+		self::$db->query("set NAMES 'utf8'");
         }
         return self::$db;
     }

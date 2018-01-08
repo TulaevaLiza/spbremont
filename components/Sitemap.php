@@ -34,7 +34,7 @@ class Sitemap {
             <priority>'.$line['priority'].'</priority>
         </url>';
         }
-        $xml.='</urlset></xml>';
+        $xml.='</urlset>';
         $fp= fopen($xmlPath,'w');
         fwrite($fp, $xml);
         fclose($fp);
