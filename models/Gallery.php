@@ -47,7 +47,7 @@ class Gallery {
     private static function getGallery() {
         if(!count(self::$galleryById))        
         {
-            $query="select * from gallery";
+            $query="select * from gallery order by date desc";
             $res=Db::getQuery($query,Db::FETCH_ASSOC);
         
             while($row=$res->fetch())
@@ -79,7 +79,7 @@ class Gallery {
                 $row['photos']= self::getPhotos($row['id'],$limPhotos);
             $data['alboms'][]=$row;
             $itr++;
-            if($limit && $itr>$limit) break;
+            if($limit && $itr>=$limit) break;
         }
         
         $data['sections']=self::getSections(join(',',$ids));

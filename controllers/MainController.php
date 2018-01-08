@@ -12,7 +12,7 @@ class MainController {
         $data=array();
         $data=Page::getPageByPul('');
         $data['items']=Item::getItemsByParent(0);
-        $data['gallery']=Gallery::getAlboms(6);
+        $data['gallery']=Gallery::getAlboms(9);
         $data['blogs']=Blog::getBlogs(3);
         $data['reviews']=Reviews::getReviews();
         $data['menu']=Menu::getItemsMenu(Menu::NAV_MODE);
