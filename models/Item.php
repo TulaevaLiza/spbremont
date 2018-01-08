@@ -9,22 +9,29 @@ class Item {
     private static $itemsById=array();
     private static $itemsByPul=array();
     
+    private function getCanonical($pul) {
+        return '/услуги/'.$pul;
+    }
+    
     private static function getItems() {
-       $query="select * from items";
-       $res=Db::getQuery($query,Db::FETCH_ASSOC);
-        
-        while($row=$res->fetch())
+        if(!count(self::$itemsByPul) && !count(self::$itemsById))        
         {
-            $row['price_schema']=preg_replace("/[^\d]*/","",$row['price']);
-            self::$itemsById[$row['id']]=$row;
-            self::$itemsByPul[$row['pul']]=$row;
+            $query="select * from items";
+            $res=Db::getQuery($query,Db::FETCH_ASSOC);
+        
+            while($row=$res->fetch())
+            {
+                $row['price_schema']=preg_replace("/[^\d]*/","",$row['price']);
+                $row['canonical']=self::getCanonical($row['pul']);
+                self::$itemsById[$row['id']]=$row;
+                self::$itemsByPul[$row['pul']]=$row;
+            }
         }
     }
             
     public static function getItemByPul($pul) 
     {
-        if(!count(self::$itemsByPul))
-            self::getItems();
+        self::getItems();
         if(is_array(self::$itemsByPul[$pul]))
             return self::$itemsByPul[$pul];
         
@@ -32,22 +39,20 @@ class Item {
     }    
     public static function getItemTitle($id) 
     {
-        if(!count(self::$itemsById))
-            self::getItems();
+        self::getItems();
         if(is_array(self::$itemsById[$id]))
             return self::$itemsById[$id]['title'];          
         return '';
     }    
     public static function getItemsByParent($parent) 
     {
-        if(!count(self::$itemsById))
-            self::getItems();
+        self::getItems();
         
         $data=array();
         
         foreach(self::$itemsById as $row) {
             if($row['parent']==$parent) {
-                $row['link']='/услуги/'.$row['pul'];
+                $row['link']=self::getCanonical($row['pul']);
                 $data[]=$row;            
             }
         }
@@ -56,8 +61,7 @@ class Item {
         
     }   
     public static function getBreadCrumbs($pul) {
-        if(!count(self::$itemsByPul))
-            self::getItems();
+        self::getItems();
         
         $bread=array();
         array_push($bread,array('title'=>'Главная','link'=>'/'));
@@ -65,9 +69,9 @@ class Item {
         if(self::$itemsByPul[$pul]['parent'])
         {
             $parent=self::$itemsByPul[$pul]['parent'];
-            array_push($bread,array('title'=>self::$itemsById[$parent]['title'],'link'=>'/услуги/'.self::$itemsById[$parent]['pul']));            
+            array_push($bread,array('title'=>self::$itemsById[$parent]['title'],'link'=>self::getCanonical(self::$itemsById[$parent]['pul'])));            
         }
-        array_push($bread,array('title'=>self::$itemsByPul[$pul]['title'],'link'=>'/услуги/'.$pul));            
+        array_push($bread,array('title'=>self::$itemsByPul[$pul]['title'],'link'=>self::getCanonical($pul)));            
         return $bread;
     }
 }

@@ -13,6 +13,8 @@
  */
 class Gallery {
     const WITH_PHOTO=true;
+    private static $galleryById=array();
+
     private static function getPhotos($id,$lim=6) {
         $path=ROOT.'/template/images/gallery/'.$id.'/small';
         $link='/template/images/gallery/'.$id.'/small/';
@@ -37,7 +39,25 @@ class Gallery {
         }
         return $photos;
     }
-            
+    
+    private function getCanonical($id,$title) {
+        return '/фото_ремонта/'.makePul($title)."_".$id.".html";
+    }
+
+    private static function getGallery() {
+        if(!count(self::$galleryById))        
+        {
+            $query="select * from gallery";
+            $res=Db::getQuery($query,Db::FETCH_ASSOC);
+        
+            while($row=$res->fetch())
+            {
+                $row['link']=self::getCanonical($row['id'],$row['title']);
+                $row['canonical']=self::getCanonical($row['id'],$row['title']);
+                self::$galleryById[$row['id']]=$row;
+            }
+        }
+    }
 
     public static function getSections($ids="") {
        $query="select * from gallery_sections".($ids!=""?" where id in ($ids)":"");
@@ -49,18 +69,17 @@ class Gallery {
         }
         return $data;
     }
-    public static function getAlboms($limit=0,$withPhoto=false,$lim=6) {
-        $query="select * from gallery".($limit>0?" limit 0,".$limit:"");
-        $res=Db::getQuery($query,Db::FETCH_ASSOC);
-       
-        $ids=array();
-        while($row=$res->fetch())
-        {
-            $ids[]=$row['section'];
-            $row['link']="/фото_ремонта/".makePul($row['title'])."_".$row['id'].".html";
+    public static function getAlboms($limit=0,$withPhoto=false,$limPhotos=6) {
+        
+        self::getGallery();
+        $itr=0;
+        foreach(self::$galleryById as $id=>$row) {
+            $ids[]=$row['section'];            
             if($withPhoto)
-                $row['photos']= self::getPhotos($row['id'],$lim);
+                $row['photos']= self::getPhotos($row['id'],$limPhotos);
             $data['alboms'][]=$row;
+            $itr++;
+            if($limit && $itr>$limit) break;
         }
         
         $data['sections']=self::getSections(join(',',$ids));
@@ -69,10 +88,10 @@ class Gallery {
     }
     
     public static function getAlbomById($id) {
-        $query="select * from gallery where id=$id";
-        $res=Db::getQuery($query,Db::FETCH_ASSOC);
-        if($row=$res->fetch()) {
-                $row['photos']= self::getPhotos($id);    
+        
+        self::getGallery();
+        if($row=self::$galleryById[$id]) { 
+                $row['photos']= self::getPhotos($id);  
                 return $row;
         }
         return array();
@@ -83,10 +102,9 @@ class Gallery {
         array_push($bread,array('title'=>'Главная','link'=>'/'));
         array_push($bread,array('title'=>'Наши работы','link'=>'/фото_ремонта/'));
         if($id>0) {
-            $query="select * from gallery where id=$id";
-            $res=Db::getQuery($query,Db::FETCH_ASSOC);
-            if($row=$res->fetch()) {
-                array_push($bread,array('title'=>$row['title'],'link'=>'/фото_ремонта/'.$row['title']));
+            self::getGallery();
+            if($row=self::$galleryById[$id]) { 
+                array_push($bread,array('title'=>$row['title'],'link'=>self::getCanonical($row['id'],$row['title'])));
             }
         }
             

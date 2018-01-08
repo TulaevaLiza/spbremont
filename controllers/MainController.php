@@ -10,7 +10,7 @@
 class MainController {
     public function actionIndex() {
         $data=array();
-        $data=Page::getPageByPul('main');
+        $data=Page::getPageByPul('');
         $data['items']=Item::getItemsByParent(0);
         $data['gallery']=Gallery::getAlboms(6);
         $data['blogs']=Blog::getBlogs(3);

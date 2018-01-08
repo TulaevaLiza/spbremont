@@ -4,18 +4,23 @@
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?php echo $data['meta_title'];?></title>
                 <meta name="keywords" content="<?php echo $data['meta_kw'];?>">
                 <meta name="author" content="спб-ремонтпро.рф">
-                <meta name="description" content="<?php echo $data['meta_description']; ?>" />                
+                <meta name="description" content="<?php echo $data['meta_description']; ?>" />     
+                <?php if(isset($data['canonical'])):?>
+                <link rel="canonical" href="<?php echo 'http://xn----9sbn2affbbgffcv.xn--p1ai'.$data['canonical'];?>"/>                
+                <?php endif;?>
                 <meta name="robots" content="noyaca"/>
                 <meta name="robots" content="noodp"/> 
                 <meta property="og:title" content="<?php echo $data['meta_title']; ?>" />
-                <meta property="og:site_name" content="СПб-РемонтПро" />
+                <meta property="og:site_name" content="СПб-Ремонт" />
                 <meta property='og:description' content='<?php echo $data['meta_description']; ?>'/>
                 <meta property='og:type' content='website' />
-                <meta property='og:url' content='http://xn----9sbn2affbbgffcv.xn--p1ai<?php echo $_SERVER['REQUEST_URI']; ?>' />
+                <?php if(isset($data['canonical'])):?>
+                <meta property='og:url' content='<?php echo 'http://xn----9sbn2affbbgffcv.xn--p1ai'.$data['canonical'];?>' />
+                <?php endif;?>
 
                 <meta name="yandex-verification" content="533de87fc47dc8a3" />
                 <meta name="google-site-verification" content="KYWBXKDL0aKG_fStMq1o2XTRSQ7Bo3CawYV_UnvXlQU" />
@@ -27,10 +32,47 @@
 <?php else: ?>                
 <?php  include_once ROOT.'/views/headLinksMain.php';?>
 <?php endif; ?>
+                
+                <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61014803-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 
 	</head>
 	<body>
 
+<!-- Rating@Mail.ru counter -->
+<script type="text/javascript">
+var _tmr = _tmr || [];
+_tmr.push({id: "2803160", type: "pageView", start: (new Date()).getTime()});
+(function (d, w) {
+   var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;
+   ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+   var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+   if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window);
+</script><noscript><div style="position:absolute;left:-10000px;">
+<img src="//top-fwz1.mail.ru/counter?id=2803160;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru" />
+</div></noscript>
+<!-- //Rating@Mail.ru counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61014803-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 		<header class="header header-landing">
 

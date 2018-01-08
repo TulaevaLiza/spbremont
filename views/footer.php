@@ -41,6 +41,76 @@
 								<div class="footer-hours">Воскресение :<br>10:00 - 22:00</div>
 							</div> <!-- end .col-sm-3 -->
 							<div class="col-sm-3">
+                                                            <ul style='list-style: none;'>
+                                                                <li>								
+<!-- Rating@Mail.ru logo -->
+<a href="http://top.mail.ru/jump?from=2803160">
+<img src="//top-fwz1.mail.ru/counter?id=2803160;t=476;l=1" 
+style="border:0;" height="31" width="88" alt="Рейтинг@Mail.ru" /></a>
+<!-- //Rating@Mail.ru logo -->
+
+</li>
+
+<li>
+<!-- Yandex.Metrika informer -->
+<a href="https://metrika.yandex.ru/stat/?id=27411413&amp;from=informer"
+target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/27411413/3_1_84B5FFFF_6495EDFF_0_pageviews"
+style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="27411413" data-lang="ru" /></a>
+<!-- /Yandex.Metrika informer -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter27411413 = new Ya.Metrika({
+                    id:27411413,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/27411413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</li>
+<li>
+<a href="http://stroyfirm.ru/expo/index.html" target="_blank"><img src="http://stroyfirm.ru/counter.php?nn=34546" border="0" width="88" height="31" alt="СТРОЙФИРМЫ.РФ" title="Ремонт и отделка помещений, сантехнические, электромонтажные работы в каталоге СТРОЙФИРМЫ.РФ" style="border: 0;"></a>
+</li>
+<li>
+<a href="http://www.stroyka24.ru/firms/f10419/"><img border=0 src="http://www.stroyka24.ru/ban/logocompany.gif" /></a>
+</li>
+<li>
+<!-- begin of Top100 code -->
+
+<script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?4439431"></script>
+<noscript>
+<a href="http://top100.rambler.ru/navi/4439431/">
+<img src="http://counter.rambler.ru/top100.cnt?4439431" alt="Rambler's Top100" border="0" />
+</a>
+
+</noscript>
+<!-- end of Top100 code -->
+</li>
+<li>
+<a href="http://stroitelstvo.org/firm252460/" target="_blank"><img src="http://stroitelstvo.org/images/buttons/2.png" border="0" /></a>
+</li>
+  </ul>
+
 <!--								<h4>Our Location</h4>
 								<div class="footer-map" id="footer-map"></div> -->
 							</div> <!-- end .col-sm-3 -->

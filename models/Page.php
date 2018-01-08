@@ -32,13 +32,15 @@ class Page {
         $data=array_merge($data,self::getPageMetaData($pul));   
         if(isset($data['title']))
             $data['breadcrumbs']= self::getBreadCrumbs($data['title'],$pul);
+        
+        $data['canonical']='/'.$pul;
         return $data;
     }
     
     private static function getBreadCrumbs($title,$pul) {
         $bread=array();
         array_push($bread,array('title'=>'Главная','link'=>'/'));
-        array_push($bread,array('title'=>$title,'link'=>"/".$pul."/"));            
+        array_push($bread,array('title'=>$title,'link'=>"/".$pul));            
         return $bread;
     }    
 }

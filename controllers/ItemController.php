@@ -5,12 +5,7 @@
  *
  * @author Liza
  */
-/*
-include_once ROOT.'/models/Item.php';
-include_once ROOT.'/models/Menu.php';
-include_once ROOT.'/models/Page.php';
-include_once ROOT.'/models/Gallery.php';
-*/
+
 class ItemController {
     
     public function actionView($pul,$itemPul) {
@@ -27,7 +22,7 @@ class ItemController {
     public function actionIndex($pul) {
         $data=array();
         $data['items']=Item::getItemsByParent(0);
-        $data=array_merge($data,Page::getPageByPul('items'));
+        $data=array_merge($data,Page::getPageByPul($pul));
         $data['gallery']=Gallery::getAlboms(6);
         $data['menu']=Menu::getItemsMenu(Menu::NAV_MODE);
         require_once ROOT.'/views/itemView.php';              
