@@ -40,7 +40,7 @@ class Gallery {
         return $photos;
     }
     
-    private function getCanonical($id,$title) {
+    private static function getCanonical($id,$title) {
         return '/фото_ремонта/'.makePul($title)."_".$id.".html";
     }
 

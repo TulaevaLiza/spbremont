@@ -18,6 +18,7 @@
 				<div class="split-section-section three-fourths light">
 					<div class="inner">
 						<form action="/template/js/contact.php" method="post" id="contact-form">
+							<input type="hidden" id="type" name="type" value='7'>
 							<fieldset>
 								<legend>Задайте свой вопрос</legend>
 								<div class="row">

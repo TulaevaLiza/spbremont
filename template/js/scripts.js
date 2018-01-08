@@ -161,121 +161,6 @@
 
 	}
 	
-	
-	/*==========  Validate Email  ==========*/
-/*	function validateEmail($validate_email) {
-		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-		if( !emailReg.test( $validate_email ) ) {
-			return false;
-		} else {
-			return true;
-		}
-		return false;
-	}
-*/	
-	/*==========  Contact Form  ==========*/
-/*	$('#contact-form').on('submit', function() {
-		$('#contact-error').fadeOut();
-		$('#contact-success').fadeOut();
-		$('#contact-loading').fadeOut();
-		$('#contact-loading').fadeIn();
-		if (validateEmail($('#contact-email').val()) && $('#contact-email').val().length !== 0 && $('#contact-name').val().length !== 0 && $('#contact-message').val().length !== 0) {
-			var action = $(this).attr('action');
-			$.ajax({
-				type: "POST",
-				url : action,
-				data: {
-					contact_name: $('#contact-name').val(),
-					contact_email: $('#contact-email').val(),
-					contact_phone: $('#contact-phone').val(),
-					contact_subject: $('#contact-subject').val(),
-					contact_message: $('#contact-message').val()
-				},
-				success: function() {
-					$('#contact-error').fadeOut();
-					$('#contact-success').fadeOut();
-					$('#contact-loading').fadeOut();
-					$('#contact-success .message').html('Success! Thanks for contacting us!');
-					$('#contact-success').fadeIn();
-				},
-				error: function() {
-					$('#contact-error').fadeOut();
-					$('#contact-success').fadeOut();
-					$('#contact-loading').fadeOut();
-					$('#contact-error .message').html('Sorry, an error occurred.');
-					$('#contact-error').fadeIn();
-				}
-			});
-		} else if (!validateEmail($('#contact-email').val()) && $('#contact-email').val().length !== 0 && $('#contact-name').val().length !== 0 && $('#contact-message').val().length !== 0) {
-			$('#contact-error').fadeOut();
-			$('#contact-success').fadeOut();
-			$('#contact-loading').fadeOut();
-			$('#contact-error .message').html('Please enter a valid email.');
-			$('#contact-error').fadeIn();
-		} else {
-			$('#contact-error').fadeOut();
-			$('#contact-success').fadeOut();
-			$('#contact-loading').fadeOut();
-			$('#contact-error .message').html('Please fill out all the fields.');
-			$('#contact-error').fadeIn();
-		}
-		return false;
-	});
-*/
-	/*==========  Newsletter Form  ==========*/
-/*	var $form = $('#mc-embedded-subscribe-form');
-	$form.submit(function() {
-		$('#newsletter-error').fadeOut();
-		$('#newsletter-success').fadeOut();
-		$('#newsletter-loading').fadeOut();
-		$('#newsletter-info').fadeOut();
-		$('#newsletter-loading').fadeIn();
-		if (validateEmail($('#mce-EMAIL').val()) && $('#mce-EMAIL').val().length !== 0) {
-			$.ajax({
-				type: $form.attr('method'),
-				url: $form.attr('action'),
-				data: $form.serialize(),
-				cache: false,
-				dataType: 'json',
-				contentType: 'application/json; charset=utf-8',
-				error: function(err) {
-					$('#newsletter-error').fadeOut();
-					$('#newsletter-success').fadeOut();
-					$('#newsletter-loading').fadeOut();
-					$('#newsletter-info').fadeOut();
-					$('#newsletter-error .message').html(err.msg);
-					$('#newsletter-error').fadeIn();
-				},
-				success: function(data) {
-					if (data.result !== 'success') {
-						$('#newsletter-error').fadeOut();
-						$('#newsletter-success').fadeOut();
-						$('#newsletter-loading').fadeOut();
-						$('#newsletter-info').fadeOut();
-						$('#newsletter-info .message').html(data.msg);
-						$('#newsletter-info').fadeIn();
-					} else {
-						$('#newsletter-error').fadeOut();
-						$('#newsletter-success').fadeOut();
-						$('#newsletter-loading').fadeOut();
-						$('#newsletter-info').fadeOut();
-						$('#newsletter-success .message').html(data.msg);
-						$('#newsletter-success').fadeIn();
-					}
-				}
-			});
-		} else {
-			$('#newsletter-error').fadeOut();
-			$('#newsletter-success').fadeOut();
-			$('#newsletter-loading').fadeOut();
-			$('#newsletter-info').fadeOut();
-			$('#newsletter-error .message').html('Please enter a valid email.');
-			$('#newsletter-error').fadeIn();
-		}
-		return false;
-	});
-	        */
-
 	/*========== Feedback Form Class ===========*/
 
 
@@ -384,6 +269,7 @@
                         url: this.form.attr("action"),
 			type:"POST", 
 			data: {
+				type: $('#type').val(),
 				contact_name: $('#contact-name').val(),
 				contact_email: $('#contact-email').val(),
 				contact_phone: $('#contact-phone').val(),
@@ -391,6 +277,7 @@
 				contact_message: $('#contact-message').val()
 			},
 			success: function(data) {
+console.log(data);
 				that.printResponse(JSON.parse(data));
 			},
 			error:  function(xhr, str){

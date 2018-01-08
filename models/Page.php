@@ -7,9 +7,9 @@
  */
 class Page {
     public static function getPageMetaData($pul) {
-        $query="select * from pages_meta_data where pul like '".mysql_escape_string($pul)."'";
-        $res=Db::getQuery($query,Db::FETCH_ASSOC);
-
+        $query="select * from pages_meta_data where pul like :pul";
+        $res=Db::getQuery($query,Db::FETCH_ASSOC,array('pul'=>$pul));
+        
         if($row=$res->fetch())
         {
             return $row;            
@@ -21,13 +21,13 @@ class Page {
     public static function getPageByPul($pul) 
     {
        $data=array();
-       $query="select * from pages where pul like '".mysql_escape_string($pul)."'";
-       $res=Db::getQuery($query,Db::FETCH_ASSOC);
+       $query="select * from pages where pul like :pul";
+       $res=Db::getQuery($query,Db::FETCH_ASSOC,array('pul'=>$pul));
         
         if($row=$res->fetch())
         {
             $data=$row;            
-        }
+        }       
         
         $data=array_merge($data,self::getPageMetaData($pul));   
         if(isset($data['title']))

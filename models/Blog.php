@@ -7,7 +7,7 @@
  */
 class Blog {
 
-    private function getCanonical($id,$title) {
+    private static function getCanonical($id,$title) {
         return '/блог/'.makePul($title)."_".$id.".html";
     }
     public static function getBlogs($limit=0,$w='') {
@@ -26,7 +26,7 @@ class Blog {
     }
     
      public static function getBlogById($id) {
-        $query="select * from blogs where id=".$id;
+        $query="select * from blogs where id=".(int)$id;
         $res=Db::getQuery($query,Db::FETCH_ASSOC);
        
         if($row=$res->fetch())

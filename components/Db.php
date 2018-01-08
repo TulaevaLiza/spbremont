@@ -22,11 +22,17 @@ class Db {
         }
         return self::$db;
     }
-    public static function getQuery($query,$mode="")
+    public static function getQuery($query,$mode="",$params=array())
     {     
         $dblink=self::getConnection();
-        $res=$dblink->query($query);
+        $res=$dblink->prepare($query);
+        foreach($params as $name=>$value) {
+            $res->bindParam(':'.$name,$value);
+        }
+        $res->execute();
         if($mode==self::FETCH_ASSOC) $res->setFetchMode(PDO::FETCH_ASSOC);
+    
         return $res;
     }
+    
 }

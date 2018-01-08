@@ -17,7 +17,7 @@
 						</div> <!-- end .col-sm-6 -->
 						<div class="col-sm-4 clearfix">
 							<div class="quickquote">
-								<form action="/" method="post" id="contact-form">
+								<form action="/template/js/contact.php" method="post" id="contact-form">
 									<fieldset>
 										<legend>Заявка на смету</legend>
 										<div class="row">

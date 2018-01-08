@@ -8,7 +8,7 @@
 class Price {
     private static $price=array();
     
-    private function getCanonical($id,$title) {
+    private static function getCanonical($id,$title) {
         return '/прайс/'.makePul($title)."_".$id.".html";
     }    
     

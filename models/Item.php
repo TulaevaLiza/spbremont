@@ -9,7 +9,7 @@ class Item {
     private static $itemsById=array();
     private static $itemsByPul=array();
     
-    private function getCanonical($pul) {
+    private static function getCanonical($pul) {
         return '/услуги/'.$pul;
     }
     
